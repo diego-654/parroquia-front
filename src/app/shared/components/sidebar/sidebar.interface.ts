@@ -1,0 +1,6 @@
+export interface MenuItem {
+  label: string;
+  icon: string;
+  url: string;
+  children?: MenuItem[];
+}

@@ -1,23 +1,5 @@
-<div class="internal-layout" [ngStyle]="{'grid-template-columns': columns ? 'repeat(' + columns + ', 1fr)' : ''}">
-<!-- Si el usuario pasó un template por proyección, lo usamos -->
-<ng-container *ngFor="let i of items; let idx = index">
-<div class="internal-item" (click)="onItemClick(idx)">
-<ng-content select="[item]" *ngIf="false"></ng-content>
-
-
-<!-- Default content -->
-<ng-container >
-<div class="default-box">
-<div class="number">{{ idx + 1 }}</div>
-<div class="label">bautizo</div>
+<div class="layout">
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
 </div>
-</ng-container>
-
-
-<!-- Si se proyecta un template (detectado en CSS/JS), el usuario puede
-insertar su propio HTML con <ng-template #item let-index> ...</ng-template>
-pero para mantener esto simple no hacemos detección compleja aquí.
--->
-</div>
-</ng-container>
-</div>`

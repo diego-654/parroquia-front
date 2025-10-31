@@ -1,0 +1,7 @@
+<div class="sidebar">
+  @for (item of menuItems; track $index) {
+  <div class="sidebar_item">
+    <span>{{ item.label }} {{ $index }}</span>
+  </div>
+  }
+</div>
