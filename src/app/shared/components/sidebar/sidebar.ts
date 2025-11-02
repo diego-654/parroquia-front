@@ -1,53 +1,55 @@
 import { Component } from '@angular/core';
 import { MenuItem } from './sidebar.interface';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [],
+  imports: [CommonModule, RouterModule],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
+
 export class Sidebar {
-  menuItems: MenuItem[] = MENU_ITEMS;
+  title = 'PARROQUIA LA PURISIMA\nCONCEPCION';
 
-}
-export const MENU_ITEMS: MenuItem[] = [
-  {
-    label: 'Home',
-    icon: 'home',
-    url: '/home'
-  },
-  {
-    label: 'About',
-    icon: 'info',
-    url: '/about'
-  },
-  {
-    label: 'Contact',
-    icon: 'contact',
-    url: '/contact'
-  },
-  {
-    label: 'Blog',
-    icon: 'blog',
-    url: '/blog',
-    children: [
-      {
-        label: 'Blog 1',
-        icon: 'blog',
-        url: '/blog/1'
-      },
-      {
-        label: 'Blog 2',
-        icon: 'blog',
-        url: '/blog/2'
-      },
-      {
-        label: 'Blog 3',
-        icon: 'blog',
-        url: '/blog/3'
-      }
-    ]
+  menuPartidas: MenuItem[] = MENU_PARTIDAS;
+  menuNotificacion: MenuItem[] = MENU_NOTIFICACION;
+
+  showPartidas = true;
+  showNotificacion = true;
+
+  onLogout() {
+    console.log('Cerrar Sesión');
   }
-]
+}
 
+
+export const MENU_PARTIDAS: MenuItem[] = [
+  {
+    label: 'Bautizo',
+    url: '/bautizo' },
+  {
+    label: 'Matrimonio',
+    url: '/matrimonio'
+  },
+  {
+    label: 'Primera Comunión',
+    url: '/primera-comunion'
+  },
+  {
+    label: 'Confirmación',
+    url: '/confirmacion'
+  },
+];
+
+export const MENU_NOTIFICACION: MenuItem[] = [
+  {
+    label: 'Matrimonio',
+    url: '/notificacion/matrimonio'
+  },
+  {
+    label: 'Proclama',
+    url: '/notificacion/proclama'
+  },
+];
