@@ -1,0 +1,48 @@
+<aside class="sidebar">
+    <div class="brand">
+        <h1 class="brand__title">{{ title }}</h1>
+        <img class="brand__logo" src="/assets/img/logo-parroquia2.jpg" alt="Logo" />
+    </div>
+
+    <section class="menu-section" [class.is-collapsed]="!showPartidas">
+        <h3 class="menu-section__title" (click)="showPartidas = !showPartidas" [attr.aria-expanded]="showPartidas">
+            <span class="i i-wrench"></span> PARTIDAS
+            <span class="caret" [class.open]="showPartidas">▶</span>
+        </h3>
+
+        <div class="collapse">
+            <ul class="menu-list">
+                <li class="menu-item" *ngFor="let it of menuPartidas">
+                    <a class="menu-link" [routerLink]="it.url">
+                        <span class="menu-link__label">{{ it.label }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="menu-section" [class.is-collapsed]="!showNotificacion">
+        <h3 class="menu-section__title" (click)="showNotificacion = !showNotificacion"
+            [attr.aria-expanded]="showNotificacion">
+            <span class="i i-wrench"></span> NOTIFICACIÓN
+            <span class="caret" [class.open]="showNotificacion">▶</span>
+        </h3>
+
+        <div class="collapse">
+            <ul class="menu-list">
+                <li class="menu-item" *ngFor="let it of menuNotificacion">
+                    <a class="menu-link" [routerLink]="it.url">
+                        <span class="menu-link__label">{{ it.label }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <div class="footer">
+        <button class="btn-logout" (click)="onLogout()">
+            <span class="i i-logout"></span> Cerrar Sesión
+        </button>
+    </div>
+</aside>
