@@ -12,11 +12,13 @@
 
         <div class="collapse">
             <ul class="menu-list">
-                <li class="menu-item" *ngFor="let it of menuPartidas">
+                @for (it of menuPartidas; track it.url) {
+                <li class="menu-item">
                     <a class="menu-link" [routerLink]="it.url">
                         <span class="menu-link__label">{{ it.label }}</span>
                     </a>
                 </li>
+                }
             </ul>
         </div>
     </section>
@@ -30,11 +32,13 @@
 
         <div class="collapse">
             <ul class="menu-list">
-                <li class="menu-item" *ngFor="let it of menuNotificacion">
+                @for (it of menuNotificacion; track it.url) {
+                <li class="menu-item">
                     <a class="menu-link" [routerLink]="it.url">
                         <span class="menu-link__label">{{ it.label }}</span>
                     </a>
                 </li>
+                }
             </ul>
         </div>
     </section>
