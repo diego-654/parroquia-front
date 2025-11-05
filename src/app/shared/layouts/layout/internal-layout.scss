@@ -1,0 +1,10 @@
+.body {
+  padding-left: var(--sidebar-expanded-width);
+  background-color: var(--backgroud-outlet-color);
+  transition: padding-left 0.25s ease;
+  min-height: 100vh;
+}
+
+.body.non-expanded{
+  padding-left: var(--sidebar-non-expanded-width);
+}

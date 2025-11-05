@@ -1,0 +1,50 @@
+<div class="input-label" *ngIf="label()">
+  {{ label() }} <span *ngIf="isRequired">*</span>
+</div>
+<div
+  class="input-wrapper"
+  [ngClass]="[size()]"
+  [class.disabled]="disabled()"
+  [class.readonly]="readonly()"
+  (click)="handleWrapperClick()"
+>
+  <div class="prefix">
+    <ng-content select="[prefix]"></ng-content>
+  </div>
+
+  @if(leftIcon()){
+  <div class="prefix">
+    <app-svg-icon [path]="leftIcon()!" class="icon"></app-svg-icon>
+  </div>
+  }
+
+  <input
+    #inputElement
+    [placeholder]="placeholder()"
+    [value]="internalValue()"
+    (input)="handleInput($event)"
+    (blur)="handleBlur()"
+    [disabled]="disabled()"
+    [name]="name()"
+    type="text"
+    [readonly]="readonly()"
+    onwheel="this.blur()"
+    (keydown)="keyPressed($event)"
+    [attr.maxlength]="maxLength()"
+  />
+  <div class="sufix">
+    <ng-content select="[sufix]"></ng-content>
+  </div>
+
+  @if(rightIcon()){
+  <div class="sufix">
+    <app-svg-icon [path]="rightIcon()!" class="icon"></app-svg-icon>
+  </div>
+  }
+</div>
+
+@if(errorMessage) {
+<div class="error">
+  {{ errorMessage }}
+</div>
+}

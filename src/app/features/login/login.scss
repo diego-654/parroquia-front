@@ -1,0 +1,94 @@
+.form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+  overflow: hidden;
+
+  .blur-img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    filter: blur(10px) brightness(0.6);
+    transform: scale(1.1);
+    z-index: 0;
+
+    &.top {
+      top: 0;
+      object-position: top;
+    }
+
+    &.bottom {
+      bottom: 0;
+      object-position: bottom;
+    }
+  }
+
+  .img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+      width: 90%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+      filter: blur(1px);
+    }
+
+    .logo {
+      width: 30%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 300px;
+
+      img {
+        object-fit: contain;
+        display: block;
+      }
+
+      .text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 30px;
+
+        .parroquia {
+          color: #000000;
+          font-weight: 300;
+          margin: 0;
+          text-align: center;
+        }
+
+        .separator {
+          color: rgb(0, 0, 0);
+          font-size: 40px;
+          line-height: 1;
+          user-select: none;
+
+        }
+
+        .arzobispado {
+          color: #000000;
+          font-weight: 900;
+          margin: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
